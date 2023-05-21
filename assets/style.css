@@ -1,0 +1,17 @@
+* {
+    border-radius: 1.5%;
+}
+
+body {
+    display: flex;
+}
+
+.header {
+    color: white;
+    background-color: darkblue;
+    width: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
