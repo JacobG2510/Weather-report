@@ -4,14 +4,21 @@
 
 body {
     display: flex;
+    flex-direction: column;
 }
 
 .header {
     color: white;
     background-color: darkblue;
-    width: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+}
+
+#weather-container {
+    border-color: black;
+    padding: 5%;
+    margin: 5%;
 }
