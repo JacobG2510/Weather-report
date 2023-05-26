@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css"></link>
+    <link rel="stylesheet" href="assets/style.css">
+    </link>
     <title>weather-report</title>
 </head>
+
 <body>
     <div class="header">
         <h1>weather report</h1>
         <p>check what the weather is anywhere in the world!</p>
     </div>
     <div class="searchBW">
-        <p id='weather-container'></p>
+        <form id="search-bar">
+            <input type="text" id="city-input" placeholder="city name">
+            <button type="submit">Search</button>
+        </form>
     </div>
+    <div id="weather-container"></div>
 
-<script src="assets/script.js"></script>
-<link src="api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}"></link>
+    <script src="assets/script.js"></script>
+    <link src="https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}">
+    </link>
 </body>
+
 </html>
