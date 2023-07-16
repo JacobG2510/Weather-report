@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="assets/style.css">
     </link>
     <title>weather-report</title>
@@ -16,16 +17,25 @@
         <p>check what the weather is anywhere in the world!</p>
     </div>
     <div class="searchBW">
-        <form id="search-bar">
-            <input type="text" id="city-input" placeholder="city name">
-            <button type="submit">Search</button>
-        </form>
+        
+            <input type="text" id="cityInput" placeholder="city name">
+            <button type="submit" id="searchBtn">Search</button>
+   
     </div>
-    <div id="weather-container"></div>
+
+    <div>
+        <label for="cityInput">City weather:</label>
+      </div>
+    
+      <div>
+        <h2 id="cityName"></h2>
+        <p id="country"></p>
+        <p id ="icon"></p>
+        <p id="forecast"></p>
+
+      </div>
 
     <script src="assets/script.js"></script>
-    <link src="https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}">
-    </link>
 </body>
 
 </html>
