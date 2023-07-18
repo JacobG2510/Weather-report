@@ -20,6 +20,10 @@ const searchCity = () => {
       console.log('latitude -> ', lat, '\nlongitude -> ', lon)
       getForecastWeather(lat, lon, data)
 
+      addToSearchHistory(city, lat, lon);
+
+      getForecastWeather(lat, lon, data);
+
     })
 
     //error message
@@ -88,6 +92,36 @@ function displayCityInfo(cityData, weatherData) {
     iconElement.classList.add('fas', 'fa-question');
   }
   forecastELement.textContent = 'temperature: ' + forecast;
+}
+
+function addToSearchHistory(city, lat, lon) {
+  var isCityInHistory = searchHistory.some(item =>toLowerCase() === city.toLowerCase());
+
+  if (!isCityInHistory) {
+    searchHistory.push({ city: city, lat: lat, lon: lon });
+
+    updateSearchHistoryUI();
+  }
+}
+
+function updateSearchHistoryUI() {
+  var searchHistoryElement = document.getElementById('search-history');
+  searchHistoryElement.innerHTML = '';
+
+  searchHistory.forEach(item => {
+    var cityLink = document.createElement('a');
+    cityLink.href = '#';
+    cityLink.textContent = item.city;
+    cityLink.addEventListener('click', function () {
+  
+      getForecastWeather(item.lat, item.lon);
+    });
+
+    var cityItem = document.createElement('li');
+    cityItem.appendChild(cityLink);
+
+    searchHistoryElement.appendChild(cityItem);
+  });
 }
 
 searchBtn.addEventListener('click', searchCity)
