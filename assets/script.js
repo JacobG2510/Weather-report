@@ -2,9 +2,17 @@ var forecastData;
 var cityInput = document.getElementById('cityInput');
 var searchBtn = document.getElementById('searchBtn');
 var searchHistory = [];
+var currentDateElement = document.getElementById('currentDate');
+var forecastElement = document.getElementById('forecastDate');
 
 // API configuration
 var apiKey = 'df3a35b8272d9b66d05c6c9a1c3eda1c';
+
+function formatDate(timestamp) {
+  var date = new Date(timestamp * 1000);
+  var options = { month: 'long', day: 'numeric', year: 'numeric' };
+  return date.toLocaleDateString(undefined, options);
+}
 
 const searchCity = () => {
   var city = cityInput.value.trim();
@@ -92,6 +100,13 @@ function displayCityInfo(cityData, weatherData) {
     iconElement.classList.add('fas', 'fa-question');
   }
   forecastELement.textContent = 'temperature: ' + forecast;
+  var currentDate = weatherData.list[0].dt;
+  var formattedCurrentDate = formatDate(currentDate);
+  currentDateElement.textContent = 'Date: ' + formattedCurrentDate;
+
+  var forecastDate = weatherData.list[1].dt;
+  var formattedForecastDate = formatDate(forecastDate);
+  forecastElement.textContent = 'Forecast Date: ' + formattedForecastDate;
 }
 
 function addToSearchHistory(city, lat, lon) {
